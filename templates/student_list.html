@@ -6,6 +6,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>Gcard id</th>
             <th>Name</th>
             <th>Course</th>
             <th>Slot</th>
@@ -15,6 +16,7 @@
     <tbody>
         {% for student in students %}
         <tr>
+            <td>{{student.gcard_id }}</td>
             <td>{{ student.name }}</td>
             <td>{{ student.course.name }}</td>
             <td>{{ student.slot.timing }}</td>
