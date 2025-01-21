@@ -1,0 +1,27 @@
+<!-- templates/register_student.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Register Student</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="gcard_id" class="form-label">Gcard ID</label>
+        {{ form.gcard_id }}
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Student Name</label>
+        {{ form.name }}
+    </div>
+    <div class="mb-3">
+        <label for="course" class="form-label">Course</label>
+        {{ form.course }}
+    </div>
+    <div class="mb-3">
+        <label for="slot" class="form-label">Slot</label>
+        {{ form.slot }}
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock %}

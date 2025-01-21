@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Course Management</h1>
+    <h2>Add Course</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="add">Add Course</button>
+    </form>
+    <h2>Existing Courses</h2>
+    <ul>
+        {% for course in courses %}
+        <li>{{ course.name }} <button type="submit" name="remove" form="remove-form-{{ course.id }}">Remove</button></li>
+        <form id="remove-form-{{ course.id }}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="course_id" value="{{ course.id }}">
+        </form>
+        {% endfor %}
+    </ul>
+</body>
+</html>

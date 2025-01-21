@@ -1,0 +1,15 @@
+<!-- templates/add_course.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Add Course</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="name" class="form-label">Course Name</label>
+        {{ form.name }}
+    </div>
+    <button type="submit" class="btn btn-success">Add Course</button>
+</form>
+{% endblock %}

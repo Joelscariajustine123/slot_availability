@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Slot Availability</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Slot</th>
+            <th>Batch</th>
+            <th>Available Seats</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for slot in slots %}
+        <tr>
+            <td>{{ slot.timing }}</td>
+            <td>{{ slot.batch }}</td>
+            <td>{{ slot.available_seats }}</td>  <!-- Display available seats -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

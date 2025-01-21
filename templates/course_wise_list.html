@@ -1,0 +1,28 @@
+<!-- templates/course_wise_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Course Wise Student List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Students</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.name }}</td>
+            <td>
+                <ul>
+                    {% for student in course.student_set.all %}
+                    <li>{{ student.name }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
